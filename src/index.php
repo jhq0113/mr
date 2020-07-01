@@ -25,5 +25,4 @@ $app = Container::insure([
  * 装入容器
  */
 Container::set('app', $app);
-
 $app->run();

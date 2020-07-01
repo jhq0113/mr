@@ -81,10 +81,10 @@ class Container extends BaseHelper
 
         $object = new $class();
 
+        static::assem($object,$config);
+
         if(method_exists($object,'init')) {
             $object->init($config);
-        }else {
-            static::assem($object,$config);
         }
 
         return $object;
@@ -98,7 +98,7 @@ class Container extends BaseHelper
      * @author roach
      * @email jhq0113@163.com
      */
-    static public function insure($config,$defaultClass='')
+    static public function insure($config, $defaultClass='')
     {
         if(is_array($config)) {
             if(isset($config['class'])) {
