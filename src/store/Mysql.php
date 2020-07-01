@@ -58,7 +58,7 @@ class Mysql
      * @author   roach
      * @email    jhq0113@163.com
      */
-    public $attributes;
+    public $attributes = [];
 
     /**
      * @var array
