@@ -1,5 +1,12 @@
-#!/usr/bin/env php
 <?php
 $phar = new Phar('tool.phar', 0, 'tool.phar');
 $phar->buildFromDirectory(__DIR__ . '/src');
-$phar->setDefaultStub('index.php', null);
+
+$stub = <<<PHP
+#!/usr/bin/env php
+<?php
+Phar::mapPhar();
+include 'phar://tool.phar/index.php';
+__HALT_COMPILER();
+PHP;
+$phar->setStub($stub);
